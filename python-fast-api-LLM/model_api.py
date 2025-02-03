@@ -6,8 +6,8 @@ app = FastAPI()
 class Prompt(BaseModel):
     text: str
 
-model = Pythia_model()
+model = LLM_agent()
 @app.post("/api/generate-from-prompt")
 async def recvPrompt(prompt: Prompt):
-    response = model.generate(prompt.text)+"!!LLM REPONSE!!"
+    response = model.generate(prompt.text)+" !!LLM REPONSE MARKER!!"
     return {"response": response}
